@@ -2,22 +2,28 @@ Number.prototype.format = function(n, x) {
     var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
     return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
 };
-jQuery.fn.poo = function(number){
+jQuery.fn.poo = function(conf){
     
-    return this.each(function(){
+    var config = jQuery.extend({
+		number : null,
+		speed: 6
+	}, conf);
 
+    return this.each(function(){
+        
         var $this = $(this),
-            current = 0; // current number
+            current = 0,
+            number = config.number; // current number
             
-        if ( typeof number == 'undefined' ){
-            var number = parseFloat( $this.data('number') );
+        if ( number == null ){
+            number = parseFloat( $this.data('number') );
         }
             
         $this.text( current );
         
         var interval = setInterval(function(){
             
-            current += Math.ceil(Math.random() * ( number / 5 ))
+            current += Math.ceil(Math.random() * ( number / config.speed ))
             if ( current > number ){
                 current = number;
                 clearInterval(interval);
