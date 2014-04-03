@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <!-- jquery -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    
+    <!-- poo.js -->
+    <script src="poo.js"></script>
+    
+    <!-- useage -->
+    <script>
+    $(function(){
+      
+      // singular
+      $('#number').poo(2445333);
+      
+      // multiple
+      $('ul li').poo();
+      
+    });
+    </script>
+    
+</head>
+<body>
+
+Sayı: <span id="number"></span>
+
+<hr /><hr />
+
+<ul>
+  <li data-number="1000000"></li>
+  <li data-number="3554"></li>
+  <li data-number="9888774"></li>
+</ul>
+
+</body>
+</html>
